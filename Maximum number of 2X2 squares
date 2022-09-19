@@ -1,0 +1,12 @@
+#Given the base (in units) of a right-angled isoceles traingle, find the maximum number of 2X2 squares that can fit in the triangle with given base.
+
+class Solution:
+    def numberOfSquares(self, base):
+        
+        no_segments_unit_2 = base//2
+        
+        n = no_segments_unit_2 - 1
+        
+        no_of_squares = n*(n+1)//2
+        
+        return no_of_squares
