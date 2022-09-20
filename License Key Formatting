@@ -1,0 +1,27 @@
+Problem :    Given a string S that consists of only alphanumeric characters and dashes. The string is separated into N + 1 groups by N dashes. Also given an integer K. 
+
+We want to reformat the string S, such that each group contains exactly K characters, except for the first group, which could be shorter than K but still must contain at least one character. Furthermore, there must be a dash inserted between two groups, and you should convert all lowercase letters to uppercase.
+
+Return the reformatted string.
+
+solution :
+
+class Solution:
+    def ReFormatString(self, S, K):
+        S = S.upper()
+        
+        #remove dashes from the string
+        S = S.replace('-', '')
+        
+        #reverse the string 
+        S = S[::-1]
+        
+        #define an arr and insert string elements in group of K
+        arr = []
+        for i in range(0, len(S), K ):
+            arr.append( S[i : i + K ] )
+        #oining array elements by keeping a dash between them
+        arr = '-'.join(arr)
+        #reverse the output obtained from previous step
+        arr = arr[::-1]
+        return arr
