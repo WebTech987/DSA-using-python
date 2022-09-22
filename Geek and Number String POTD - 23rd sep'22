@@ -1,0 +1,23 @@
+Problem : Geek has a string Sof size Nconsisting of characters from '0'to '9'. He wants to minimise the length of the string. In each minimising operation, 
+          geek can remove any two consecutive characters if they are of the form {"12", "21", "34", "43", "56", "65", "78", "87", "09", "90"}.
+          Find the minimum possible length of the string after applying minimising operations. 
+Answer : 
+class Solution:
+    def minLength(self, s, n): 
+        #code here
+        #define a stack
+        stack = []
+        #store the given possible values to remove in dictionary
+        set1 =( "12", "21", "34", "43", "56", "65", "78", "87", "09", "90")
+        
+        #traverse string by incrementing one till end
+        for i in s:
+            #remove previous element of stack if it forming a removable pair with new coming element
+            if len(stack) > 0 and (stack[-1] + i in set1): 
+                stack.pop()
+                #in the last our stack will be storing the values which are not removable
+            #if it is not forming a removable pair then append the new coming element
+            else:
+                stack.append(i)
+        
+        return len(stack)
