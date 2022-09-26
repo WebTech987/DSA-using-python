@@ -1,0 +1,29 @@
+Problem : There are given N ropes of different lengths, we need to connect these ropes into one rope. 
+The cost to connect two ropes is equal to sum of their lengths. The task is to connect the ropes with minimum cost. 
+Given N size array arr[] contains the lengths of the ropes. 
+
+Solution :
+#User function Template for python3
+class Solution:
+    #Function to return the minimum cost of connecting the ropes.
+    def minCost(self,arr,n) :
+
+        #convert array into a heap
+        heapq.heapify(arr)
+        total_cost = 0
+        
+        #iterate over the heap and keep updating it
+        while len(arr) > 1 :
+            
+            #it will pop smallest element of the heap
+            a =  heapq.heappop(arr)
+            #it will pop smallest element of the heap
+            b =  heapq.heappop(arr)
+            
+            #cost of the operation of adding a and b
+            total_cost += a+b
+            
+            #update the resulting rope length into heap
+            heapq.heappush(arr, a+b)
+            
+        return total_cost
