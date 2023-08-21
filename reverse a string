@@ -1,7 +1,0 @@
-def reverseWord(s):
-    #your code here
-    n = len(s)
-    s1 = ''
-    for i in range(n):
-        s1 += s[n-1-i]
-    return s1
